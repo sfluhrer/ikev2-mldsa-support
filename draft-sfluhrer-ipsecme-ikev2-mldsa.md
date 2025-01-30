@@ -9,19 +9,19 @@ number:
 date:
 consensus: true
 v: 3
-area: AREA
-workgroup: WG Working Group
+area: ""
+workgroup: "IP Security Maintenance and Extensions"
 keyword:
  - next generation
  - unicorn
  - sparkling distributed ledger
 venue:
-  group: WG
-  type: Working Group
-  mail: WG@example.com
-  arch: https://example.com/WG
-  github: USER/REPO
-  latest: https://example.com/LATEST
+  group: "IP Security Maintenance and Extensions"
+  type: ""
+  mail: "ipsec@ietf.org"
+  arch: "https://mailarchive.ietf.org/arch/browse/ipsec/"
+  github: "sfluhrer/ikev2-mldsa-support"
+  latest: "https://sfluhrer.github.io/ikev2-mldsa-support/draft-sfluhrer-ipsecme-ikev2-mldsa.html"
 
 author:
  -
