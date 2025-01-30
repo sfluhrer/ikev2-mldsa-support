@@ -65,6 +65,16 @@ This document describes how to use ML-DSA with IKEv2 as an auhentication scheme.
    SUPPORTED_AUTH_METHODS notification as defined in [RFC9593],
    generates and verifies AUTH payload using ML-DSA.
 
+## Background on ML-DSA
+
+   ML-DSA (as specified in FIPS 204) is a signature algorithm that is believed to be secure against attackers who have a Quantum Computer available to them.
+   There are three strengths defined for it (with the parameter sets being known as ML-DSA-44, ML-DSA-65 and ML-DSA-87).
+   In addition, for each defined parameter set, there are two versions, the 'pure' version (where ML-DSA directly signs the message) and a 'prehashed' version (where ML-DSA signs a hash that was computed outside of ML-DSA).
+   For this protocol, we will always use the pure version.
+
+   In addition, ML-DSA also has a 'context' input, which is a short string that is common to the sender and the recceiver.
+   It is intended to allow for domain separation between separate uses of the same public key.
+
 # Conventions and Definitions
 
 {::boilerplate bcp14-tagged}
