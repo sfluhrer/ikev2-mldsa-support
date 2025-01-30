@@ -98,11 +98,17 @@ If an implementation supports multiple ML-KEM parameter sets, it will list every
 
 If the peer has not specified support for a parameter set in a SUPPORTED_AUTH_METHODS notify, that ML-KEM parameter set MUST NOT be used.
 
+In addition, the SIGNATURE_HASH_ALGORITHMS Notify payload must also be sent (see [RFC7427]).
+
 ## Signature Generation
 
 If this implementation has an ML-DSA private key and the corresponding ML-DSA public certificate, and the peer has indicated support for the parameter set, the implementation will generate the AUTH payload as specified in section 3 of [RFC7427], using the ML-DSA algorithm as the signature algorithm, and using the fixed context string "IKEv2 AUTH" (`49 4b 45 76 32 20 41 55 54 48`).
 
-That is, the implementation would take either the InitiatorSignedOctets string or the ResponderSignedOctets string (depending on whether they are the initiator or the responder), 
+That is, the implementation would take either the InitiatorSignedOctets string or the ResponderSignedOctets string (depending on whether they are the initiator or the responder, see section 2.15 of RFC 7296 for how those strings are constructed), compute the hash of that string (using one of the hashes listed in the peer's SIGNATURE_HASH_ALGORITHMS notify).
+Then, the implementation hands that hash to ML-DSA to be signed (in pure mode, using the fixed context string IKEv2 AUTH".
+The resulting signature is the Signature Value.
+
+TODO: I've defined the method two different ways - if we keep both, we need to make sure that they are equivalent.
 
 ## Siganture Verification
 
