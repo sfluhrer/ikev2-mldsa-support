@@ -39,7 +39,7 @@ normative:
     date: August 2024
 
 informative:
-
+  RFC9593:
 
 --- abstract
 
@@ -54,8 +54,16 @@ This document describes how to use ML-DSA with IKEv2 as an auhentication scheme.
 
 # Introduction
 
-TODO Introduction
+   A Cryptographically Relevant Quantum Computer (CRQC) could break
+   traditional asymmetric cryptograph algorithms: e.g RSA, ECDSA; which
+   are widely deployed authentication options of IKEv2.
+   NIST has recently published the postquantum digitial signature algorithm ML-DSA [FIPS204].
 
+   This document describes how to use this algorithm for authentication within IKEv2, as a replacement for the traditional signature algorithms (RSA, ECDSA).
+
+   Each IPsec peer announce the support for ML-DSA authentication via
+   SUPPORTED_AUTH_METHODS notification as defined in [RFC9593],
+   generates and verifies AUTH payload using ML-DSA.
 
 # Conventions and Definitions
 
