@@ -69,6 +69,20 @@ This document describes how to use ML-DSA with IKEv2 as an auhentication scheme.
 
 {::boilerplate bcp14-tagged}
 
+# Protocol Changes
+
+## Initial Negotiation
+
+Both sides will need to inform the other that they implement ML-KEM signatures.
+To do so, they will use the [RFC9593] mechanism to specify support for ML-KEM signatures, using the Multi-octet Announcement, with the following Algorithm Idenfifiers:
+
+* ML-DSA-44 -> `30 0b 06 09 60 86 48 01 65 03 04 03 11`
+* ML-DSA-65 -> `30 0b 06 09 60 86 48 01 65 03 04 03 12`
+* ML-DSA-87 -> `30 0b 06 09 60 86 48 01 65 03 04 03 13`
+
+If the peer has not specified support for the algorithm in a SUPPORTED_AUTH_METHODS notify, ML-KEM MUST NOT be used.
+
+TODO: Verify that these are the DER OID values that NIST has specified
 
 # Security Considerations
 
