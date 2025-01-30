@@ -107,6 +107,7 @@ If this implementation has an ML-DSA private key and the corresponding ML-DSA pu
 That is, the implementation would take either the InitiatorSignedOctets string or the ResponderSignedOctets string (depending on whether they are the initiator or the responder, see section 2.15 of RFC 7296 for how those strings are constructed), compute the hash of that string (using one of the hashes listed in the peer's SIGNATURE_HASH_ALGORITHMS notify).
 Then, the implementation hands that hash to ML-DSA to be signed (in pure mode, using the fixed context string IKEv2 AUTH".
 The resulting signature is the Signature Value.
+Note that ML-DSA will hash the message to be signed again; this is expected.
 
 TODO: I've defined the method two different ways - if we keep both, we need to make sure that they are equivalent.
 
