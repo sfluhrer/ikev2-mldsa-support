@@ -90,11 +90,21 @@ To do so, they will use the [RFC9593] mechanism to specify support for ML-KEM si
 * ML-DSA-65 -> `30 0b 06 09 60 86 48 01 65 03 04 03 12`
 * ML-DSA-87 -> `30 0b 06 09 60 86 48 01 65 03 04 03 13`
 
-TODO: Verify that these are the DER OID values are what NIST has specified
+TODO: Verify that these are the DER OID values that NIST has specified
 
 If an implementation supports multiple ML-KEM parameter sets, it will list every parameter set it does support.
 
 If the peer has not specified support for a parameter set in a SUPPORTED_AUTH_METHODS notify, that ML-KEM parameter set MUST NOT be used.
+
+## Signature Generation
+
+## Siganture Verification
+
+If this implementation has an ML-DSA private key and the corresponding ML-DSA public certificate, and the peer has indicated support for the parameter set, the implementation MAY do the following to generate the authentication data for the AUTH payload
+
+## Public Key
+
+Todo - out of scope
 
 # Security Considerations
 
