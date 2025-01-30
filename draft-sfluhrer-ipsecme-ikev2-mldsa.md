@@ -39,6 +39,8 @@ normative:
     date: August 2024
 
 informative:
+  RFC7296:
+  RFC7427:
   RFC9593:
 
 --- abstract
@@ -59,7 +61,7 @@ This document describes how to use ML-DSA with IKEv2 as an auhentication scheme.
    are widely deployed authentication options of IKEv2.
    NIST has recently published the postquantum digitial signature algorithm ML-DSA [FIPS204].
 
-   This document describes how to use this algorithm for authentication within IKEv2, as a replacement for the traditional signature algorithms (RSA, ECDSA).
+   This document describes how to use this algorithm for authentication within IKEv2 [RFC7296], as a replacement for the traditional signature algorithms (RSA, ECDSA).
 
    Each IPsec peer announce the support for ML-DSA authentication via
    SUPPORTED_AUTH_METHODS notification as defined in [RFC9593],
@@ -98,15 +100,9 @@ If the peer has not specified support for a parameter set in a SUPPORTED_AUTH_ME
 
 ## Signature Generation
 
-If this implementation has an ML-DSA private key and the corresponding ML-DSA public certificate, and the peer has indicated support for the parameter set, the implementation MAY do the following to generate the authentication data for the AUTH payload
-
-The Auth Method value in the AUTH payload will be 14 (Digital Signature)
+If this implementation has an ML-DSA private key and the corresponding ML-DSA public certificate, and the peer has indicated support for the parameter set, the implementation will generate the AUTH payload as specified in section 3 of [RFC7427]
 
 ## Siganture Verification
-
-## Public Key
-
-Todo - out of scope
 
 # Security Considerations
 
