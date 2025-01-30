@@ -98,9 +98,11 @@ If the peer has not specified support for a parameter set in a SUPPORTED_AUTH_ME
 
 ## Signature Generation
 
-## Siganture Verification
-
 If this implementation has an ML-DSA private key and the corresponding ML-DSA public certificate, and the peer has indicated support for the parameter set, the implementation MAY do the following to generate the authentication data for the AUTH payload
+
+The Auth Method value in the AUTH payload will be 14 (Digital Signature)
+
+## Siganture Verification
 
 ## Public Key
 
