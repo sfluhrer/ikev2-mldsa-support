@@ -100,7 +100,9 @@ If the peer has not specified support for a parameter set in a SUPPORTED_AUTH_ME
 
 ## Signature Generation
 
-If this implementation has an ML-DSA private key and the corresponding ML-DSA public certificate, and the peer has indicated support for the parameter set, the implementation will generate the AUTH payload as specified in section 3 of [RFC7427]
+If this implementation has an ML-DSA private key and the corresponding ML-DSA public certificate, and the peer has indicated support for the parameter set, the implementation will generate the AUTH payload as specified in section 3 of [RFC7427], using the ML-DSA algorithm as the signature algorithm, and using the fixed context string "IKEv2 AUTH" (`49 4b 45 76 32 20 41 55 54 48`).
+
+That is, the implementation would take either the InitiatorSignedOctets string or the ResponderSignedOctets string (depending on whether they are the initiator or the responder), 
 
 ## Siganture Verification
 
