@@ -31,6 +31,13 @@ author:
 
 normative:
 
+  FIPS204:
+    target: https://doi.org/10.6028/NIST.FIPS.204
+    title: Module-Lattice-Based Digital Signature Standard
+    seriesinfo:
+      "NIST": "FIPS 204"
+    date: August 2024
+
 informative:
 
 
