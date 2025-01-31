@@ -224,8 +224,8 @@ Table of Contents
    the signature generation processing.  That is, it is designed for
    signature algorithms that first apply one of a number of hash
    functions to the message and then perform processing on that hash.
-   ML-DSA doesn't fit cleanly into this architecture; it adds a prepend
-   to the message to be signed, and then does a fixed SHAKE256
+   ML-DSA doesn't fit cleanly into this architecture; internally it adds
+   a prepend to the message to be signed, and then does a fixed SHAKE256
    (generating 64 bytes).
 
    We see three ways to address this mismatch
@@ -240,9 +240,9 @@ Table of Contents
    public keys for the prehashed versions of ML-DSA parameter sets use
    different OIDs; this means that the certificates for IKEv2 would
    necessarily be different than certificates for other protocols (and
-   CAs might not support issuing certificates for prehashed ML-DSA).
-   The third is that some users have expressed a desire not to use the
-   prehashed parameter sets of ML-DSA.
+   some CAs might not support issuing certificates for prehashed ML-DSA,
+   again because of the lack of use).  The third is that some users have
+   expressed a desire not to use the prehashed parameter sets of ML-DSA.
 
    The second is to note that, while IKEv2 normally acts this way, it
    doesn't always.  EdDSA has a similar constraint on not working
@@ -255,23 +255,24 @@ Table of Contents
    The third way (which this current draft adopts) is what we can refer
    to as 'fake prehashing'; IKEv2 would generate the hash as current,
    but instead of running ML-DSA in prehash mode, we have ML-DSA sign it
-   as if it was the message.  This is a violation of the spirit, if not
-   the letter of FIPS 204.  However, it is secure (assuming the hash
-   function is strong), and fits in cleanly with both the existing IKEv2
-   architecture, and what crypto libraries provide.  Because this
-   doesn't have any practical downsides, we opted for this option.
+   in pure mode as if it was the message.  This is a violation of the
+   spirit, if not the letter of FIPS 204.  However, it is secure
+   (assuming the hash function is strong), and fits in cleanly with both
+   the existing IKEv2 architecture, and what crypto libraries provide.
+   Because this doesn't have any practical downsides, we opted for this
+   option.
 
 5.2.  ML-DSA Context
 
    An additional feature that ML-DSA provides it allows the signer and
    the verifier to provide a 'context string'.  The signature would
-   verify only if the context strings that both the signer and the
-   verifier match.  The reason behind this is to ensure that if a public
-   key is used for multiple purposes, a signature for one purpose cannot
-   be used by an adversary in another.  In our case, if the same
-   certificate where used to sign both IKEv2 and TLS exchanges, an
-   adversary could not possibly take the signature from an TLS exchange
-   and try to use it within an IKEv2 exchange.
+   verify only if the context strings that are provided by both the
+   signer and the verifier match.  The reason behind this is to ensure
+   that if a public key is used for multiple purposes, a signature for
+   one purpose cannot be used by an adversary in another.  In our case,
+   if the same certificate where used to sign both IKEv2 and TLS
+   exchanges, an adversary could not possibly take the signature from an
+   TLS exchange and try to use it within an IKEv2 exchange.
 
    This really is not a necessary security safe guard; the messages that
    are actually signed in both cases are distinct enough that an
