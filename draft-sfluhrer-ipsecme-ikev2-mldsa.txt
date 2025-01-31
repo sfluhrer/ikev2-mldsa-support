@@ -164,7 +164,7 @@ Table of Contents
    used.
 
    In addition, the SIGNATURE_HASH_ALGORITHMS Notify payload must also
-   be sent (see [RFC7427]).
+   be sent (see [RFC7427]), listing the supported hash functions.
 
 3.2.  Auth Payload Generation
 
