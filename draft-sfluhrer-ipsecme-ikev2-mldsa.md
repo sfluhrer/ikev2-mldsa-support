@@ -41,6 +41,7 @@ normative:
 informative:
   RFC7296:
   RFC7427:
+  RFC8420:
   RFC9593:
 
 --- abstract
@@ -148,7 +149,7 @@ The second is that the public keys for the prehashed versions of ML-DSA paramete
 The third is that some users have expressed a desire not to use the prehashed parameter sets of ML-DSA.
 
 The second is to note that, while IKEv2 normally acts this way, it doesn't always.
-EdDSA has a similar constraint on not working cleanly with the standard 'hash and then sign' paradigm, and so the existing RFC 8420 provides an alternative method, which ML-DSA would cleanly fit into.
+EdDSA has a similar constraint on not working cleanly with the standard 'hash and then sign' paradigm, and so the existing [RFC8420] provides an alternative method, which ML-DSA would cleanly fit into.
 We could certainly adopt this same strategy; our concern would be that it might be more difficult for IKEv2 implementors which do not already have support for EdDSA.
 
 The third way (which this current draft adopts) is what we can refer to as 'fake prehashing'; IKEv2 would generate the hash as current, but instead of running ML-DSA in prehash mode, we have ML-DSA sign it as if it was the message.
