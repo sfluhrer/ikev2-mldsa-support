@@ -124,7 +124,7 @@ If this signature verification fails, the implementation MUST reject the IKEv2 m
 
 # Security Considerations
 
-Other than the security considerations common to IKEv2 (such as make sure you select a strong hash function and keep your private key secure), the only security consideration is that the user must trust the strength of the ML-DSA signature operation.
+The only security consideration that this adds is that the user must trust the strength of the ML-DSA signature operation.
 
 # Discussion
 
