@@ -186,7 +186,7 @@ Table of Contents
    is the Signature Value.  Note that ML-DSA will hash the message to be
    signed again; this is expected.
 
-   TODO: I've defined the method two different ways - if we keep both,
+   TODO: We've defined the method two different ways - if we keep both,
    we need to make sure that they are equivalent.
 
 3.3.  Auth Payload Validation
