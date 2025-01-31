@@ -102,7 +102,7 @@ If an implementation supports multiple ML-DSA parameter sets, it will list every
 
 If the peer has not specified support for a parameter set in a SUPPORTED_AUTH_METHODS notify, that ML-DSA parameter set MUST NOT be used.
 
-In addition, the SIGNATURE_HASH_ALGORITHMS Notify payload must also be sent (see [RFC7427]).
+In addition, the SIGNATURE_HASH_ALGORITHMS Notify payload must also be sent (see [RFC7427]), listing the supported hash functions.
 
 ## Auth Payload Generation
 
