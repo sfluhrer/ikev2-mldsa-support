@@ -3,7 +3,7 @@ title: "IKEv2 Support of ML-DSA"
 abbrev: "IKEv2 ML-DSA"
 category: info
 
-docname: draft-sfluhrer-ikev2-mldsa-supprrt-latest
+docname: draft-sfluhrer-ipsecme-ikev2-mldsa-latest
 submissiontype: IETF
 consensus: true
 date:
