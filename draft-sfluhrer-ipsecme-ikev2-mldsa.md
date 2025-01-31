@@ -25,7 +25,7 @@ venue:
 
 author:
  -
-    fullname: "sfluhrer"
+    fullname: "Scott Fluhrer"
     organization: Cisco Systems
     email: "sfluhrer@cisco.com"
 
