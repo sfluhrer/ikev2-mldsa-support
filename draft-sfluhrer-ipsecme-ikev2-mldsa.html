@@ -1347,7 +1347,7 @@ The first is that the prehashed version of ML-DSA would appear to be rarely used
 The second is that the public keys for the prehashed versions of ML-DSA parameter sets use different OIDs; this means that the certificates for IKEv2 would necessarily be different than certificates for other protocols (and CAs might not support issuing certificates for prehashed ML-DSA).
 The third is that some users have expressed a desire not to use the prehashed parameter sets of ML-DSA.<a href="#section-5.1-3" class="pilcrow">¶</a></p>
 <p id="section-5.1-4">The second is to note that, while IKEv2 normally acts this way, it doesn't always.
-EdDSA has a similar constraint on not working cleanly with the standard 'hash and then sign' paradigm, and so the existing RFC 8420 provides an alternative method, which ML-DSA would cleanly fit into.
+EdDSA has a similar constraint on not working cleanly with the standard 'hash and then sign' paradigm, and so the existing <span>[<a href="#RFC8420" class="cite xref">RFC8420</a>]</span> provides an alternative method, which ML-DSA would cleanly fit into.
 We could certainly adopt this same strategy; our concern would be that it might be more difficult for IKEv2 implementors which do not already have support for EdDSA.<a href="#section-5.1-4" class="pilcrow">¶</a></p>
 <p id="section-5.1-5">The third way (which this current draft adopts) is what we can refer to as 'fake prehashing'; IKEv2 would generate the hash as current, but instead of running ML-DSA in prehash mode, we have ML-DSA sign it as if it was the message.
 This is a violation of the spirit, if not the letter of FIPS 204.
@@ -1418,6 +1418,10 @@ In our case, if the same certificate where used to sign both IKEv2 and TLS excha
 <dt id="RFC7427">[RFC7427]</dt>
         <dd>
 <span class="refAuthor">Kivinen, T.</span> and <span class="refAuthor">J. Snyder</span>, <span class="refTitle">"Signature Authentication in the Internet Key Exchange Version 2 (IKEv2)"</span>, <span class="seriesInfo">RFC 7427</span>, <span class="seriesInfo">DOI 10.17487/RFC7427</span>, <time datetime="2015-01" class="refDate">January 2015</time>, <span>&lt;<a href="https://www.rfc-editor.org/rfc/rfc7427">https://www.rfc-editor.org/rfc/rfc7427</a>&gt;</span>. </dd>
+<dd class="break"></dd>
+<dt id="RFC8420">[RFC8420]</dt>
+        <dd>
+<span class="refAuthor">Nir, Y.</span>, <span class="refTitle">"Using the Edwards-Curve Digital Signature Algorithm (EdDSA) in the Internet Key Exchange Protocol Version 2 (IKEv2)"</span>, <span class="seriesInfo">RFC 8420</span>, <span class="seriesInfo">DOI 10.17487/RFC8420</span>, <time datetime="2018-08" class="refDate">August 2018</time>, <span>&lt;<a href="https://www.rfc-editor.org/rfc/rfc8420">https://www.rfc-editor.org/rfc/rfc8420</a>&gt;</span>. </dd>
 <dd class="break"></dd>
 <dt id="RFC9593">[RFC9593]</dt>
       <dd>

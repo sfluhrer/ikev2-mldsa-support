@@ -247,7 +247,7 @@ Table of Contents
    The second is to note that, while IKEv2 normally acts this way, it
    doesn't always.  EdDSA has a similar constraint on not working
    cleanly with the standard 'hash and then sign' paradigm, and so the
-   existing RFC 8420 provides an alternative method, which ML-DSA would
+   existing [RFC8420] provides an alternative method, which ML-DSA would
    cleanly fit into.  We could certainly adopt this same strategy; our
    concern would be that it might be more difficult for IKEv2
    implementors which do not already have support for EdDSA.
@@ -317,6 +317,11 @@ Table of Contents
               the Internet Key Exchange Version 2 (IKEv2)", RFC 7427,
               DOI 10.17487/RFC7427, January 2015,
               <https://www.rfc-editor.org/rfc/rfc7427>.
+
+   [RFC8420]  Nir, Y., "Using the Edwards-Curve Digital Signature
+              Algorithm (EdDSA) in the Internet Key Exchange Protocol
+              Version 2 (IKEv2)", RFC 8420, DOI 10.17487/RFC8420, August
+              2018, <https://www.rfc-editor.org/rfc/rfc8420>.
 
    [RFC9593]  Smyslov, V., "Announcing Supported Authentication Methods
               in the Internet Key Exchange Protocol Version 2 (IKEv2)",
