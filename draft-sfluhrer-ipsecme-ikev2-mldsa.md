@@ -100,28 +100,69 @@ If the peer has not specified support for a parameter set in a SUPPORTED_AUTH_ME
 
 In addition, the SIGNATURE_HASH_ALGORITHMS Notify payload must also be sent (see [RFC7427]).
 
-## Signature Generation
+## Auth Payload Generation
 
 If this implementation has an ML-DSA private key and the corresponding ML-DSA public certificate, and the peer has indicated support for the parameter set, the implementation will generate the AUTH payload as specified in section 3 of [RFC7427], using the ML-DSA algorithm as the signature algorithm, and using the fixed context string "IKEv2 AUTH" (`49 4b 45 76 32 20 41 55 54 48`).
 
 That is, the implementation would take either the InitiatorSignedOctets string or the ResponderSignedOctets string (depending on whether they are the initiator or the responder, see section 2.15 of RFC 7296 for how those strings are constructed), compute the hash of that string (using one of the hashes listed in the peer's SIGNATURE_HASH_ALGORITHMS notify).
-Then, the implementation hands that hash to ML-DSA to be signed (in pure mode, using the fixed context string IKEv2 AUTH".
+Then, the implementation hands that hash to ML-DSA to be signed (in pure mode, using the fixed context string "IKEv2 AUTH".
 The resulting signature is the Signature Value.
 Note that ML-DSA will hash the message to be signed again; this is expected.
 
 TODO: I've defined the method two different ways - if we keep both, we need to make sure that they are equivalent.
 
-## Siganture Verification
+## Auth Payload Validation
+
+If this implementation receives a certificate with an ML-DSA public key, it will process the AUTH payload as implied by RFC7427.
+That is, it will recover the hash function from the AlgorithmIdentifier ASN.1 object.
+Then, it will take the ResponderSignedOctets or InitiatorSignedOctets string (depending on the whether they are the initiator or the responder), and then hash the string.
+Then, it will before an ML-DSA verification, using the hash as the message, the public key from the certificate, and the signature value from the AUTH payload.
+If this signature verification fails, the implementation MUST reject the IKEv2 message.
 
 # Security Considerations
 
 TODO Security
 
+# Discussion
+
+The signature architecture within IKE was designed around RSA (and later extended to ECDSA).
+In this architecture, the actual message (the SignedOctets) are first hashed (using a hash that the verifier has indicated support for), and then passed for the remaining part of the signature generation processing.
+That is, it is designed for signature algorithms that first apply one of a number of hash functions to the message and then perform processing on that hash.
+ML-DSA doesn't fit cleanly into this architecture; it adds a prepend to the message to be signed, and then does a fixed SHAKE256 (generating 64 bytes).
+
+We see three ways to address this mismatch
+
+The first is to note that ML-DSA has prehashed parameter sets; that is, ones designed to sign a message that has been hashed by an external source.
+At first place, this would appear to be an ideal solution, however it turns out that there are a number of practical issues.
+The first is that the prehashed version of ML-DSA would appear to be rarely used, and so it is not unlikely that support for it within crypto libraries may be lacking.
+The second is that the public keys for the prehashed versions of ML-DSA parameter sets use different OIDs; this means that the certificates for IKEv2 would necessarily be different than certificates for other protocols (and CAs might not support issuing certificates for prehashed ML-DSA).
+The third is that some users have expressed a desire not to use the prehashed parameter sets of ML-DSA
+
+The second is to note that, while IKEv2 normally acts this way, it doesn't always.
+EdDSA has a similar constraint on not working cleanly with the standard 'hash and then sign' paradigm, and so the existing RFC 8420 provides an alternative method, which ML-DSA would cleanly fit into
+We could certainly adopt this same strategy; our concern would be that it might be more difficult for IKEv2 implementors which do not already have support for EdDSA
+
+The third way (which this current draft adopts) is what we can refer to as 'fake prehashing'; IKEv2 would generate the hash as current, but instead of running ML-DSA in prehash mode, we have ML-DSA sign it as if it was the message.
+This is a violation of the spirit, if not the letter of FIPS 204.
+However, it is secure (assuming the hash function is strong), and fits in cleanly with both the existing IKEv2 architecture, and what crypto libraries provide.
+Because this doesn't have any practical downsides, we opted for this option.
+
+## ML-DSA Context
+
+An additional feature that ML-DSA provides it allows the signer and the verifier to provide a 'context string'.
+The signature would verify only if the context strings that both the signer and the verifier match.
+The reason behind this is to ensure that if a public key is used for multiple purposes, a signature for one purpose cannot be used by an adversary in another.
+In our case, if the same certificate where used to sign both IKEv2 and TLS exchanges, an adversary could not possibly take the signature from an TLS exchange and try to use it within an IKEv2 exchange.
+
+This really is not a necessary security safe guard; the messages that are actually signed in both cases are distinct enough that an adversary could not actually take advantage of this, even without the protection.
+
+However, given that ML-DSA does provide such a service, and it appears that crypto libraries do support a nonempty context, we cannot see a reason not to use it.
 
 # IANA Considerations
 
 This document has no IANA actions.
 
+The additional OIDs that this uses have been defined by NIST and do not need to be registered by IANA
 
 --- back
 
