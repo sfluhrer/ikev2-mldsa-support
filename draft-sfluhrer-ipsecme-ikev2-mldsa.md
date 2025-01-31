@@ -113,7 +113,7 @@ Then, the implementation hands that hash to ML-DSA to be signed (in pure mode, u
 The resulting signature is the Signature Value.
 Note that ML-DSA will hash the message to be signed again; this is expected.
 
-TODO: I've defined the method two different ways - if we keep both, we need to make sure that they are equivalent.
+TODO: We've defined the method two different ways - if we keep both, we need to make sure that they are equivalent.
 
 ## Auth Payload Validation
 
