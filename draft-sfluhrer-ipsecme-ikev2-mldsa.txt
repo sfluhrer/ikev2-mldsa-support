@@ -142,9 +142,9 @@ Table of Contents
 
 3.1.  Initial Negotiation
 
-   Both sides will need to inform the other that they implement ML-KEM
+   Both sides will need to inform the other that they implement ML-DSA
    signatures.  To do so, they will use the [RFC9593] mechanism to
-   specify support for ML-KEM signatures, using the Multi-octet
+   specify support for ML-DSA signatures, using the Multi-octet
    Announcement, with the following Algorithm Idenfifiers:
 
    *  ML-DSA-44 -> 30 0b 06 09 60 86 48 01 65 03 04 03 11
@@ -156,11 +156,11 @@ Table of Contents
    TODO: Verify that these are the DER OID values that NIST has
    specified
 
-   If an implementation supports multiple ML-KEM parameter sets, it will
+   If an implementation supports multiple ML-DSA parameter sets, it will
    list every parameter set it does support.
 
    If the peer has not specified support for a parameter set in a
-   SUPPORTED_AUTH_METHODS notify, that ML-KEM parameter set MUST NOT be
+   SUPPORTED_AUTH_METHODS notify, that ML-DSA parameter set MUST NOT be
    used.
 
    In addition, the SIGNATURE_HASH_ALGORITHMS Notify payload must also
