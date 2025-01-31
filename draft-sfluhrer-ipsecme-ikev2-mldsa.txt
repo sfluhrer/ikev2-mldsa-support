@@ -2,7 +2,7 @@
 
 
 
-IPsecME                                                         sfluhrer
+IPsecME                                                       S. Fluhrer
 Internet-Draft                                             Cisco Systems
 Intended status: Informational                           31 January 2025
 Expires: 4 August 2025
@@ -336,6 +336,6 @@ Acknowledgments
 
 Author's Address
 
-   sfluhrer
+   Scott Fluhrer
    Cisco Systems
    Email: sfluhrer@cisco.com
