@@ -124,13 +124,13 @@ If this signature verification fails, the implementation MUST reject the IKEv2 m
 
 # Security Considerations
 
-TODO Security
+Other than the security considerations common to IKEv2 (such as make sure you select a strong hash function and keep your private key secure), the only security consideration is that the user must trust the strength of the ML-DSA signature operation.
 
 # Discussion
 
-We made several arbitrary design decisions while writing this draft.
-This section contains the reasoning.
-Of course, these decisions are open to changes - this is just a first cut.
+We made several arbitrary design decisions in this draft.
+This section contains the reasoning behind those design decision, and why we did not select the alternative possibilities.
+Of course, these decisions are open to change - this is just a first cut.
 
 ## ML-DSA and Prehashing
 
@@ -145,11 +145,11 @@ The first is to note that ML-DSA has prehashed parameter sets; that is, ones des
 At first place, this would appear to be an ideal solution, however it turns out that there are a number of practical issues.
 The first is that the prehashed version of ML-DSA would appear to be rarely used, and so it is not unlikely that support for it within crypto libraries may be lacking.
 The second is that the public keys for the prehashed versions of ML-DSA parameter sets use different OIDs; this means that the certificates for IKEv2 would necessarily be different than certificates for other protocols (and CAs might not support issuing certificates for prehashed ML-DSA).
-The third is that some users have expressed a desire not to use the prehashed parameter sets of ML-DSA
+The third is that some users have expressed a desire not to use the prehashed parameter sets of ML-DSA.
 
 The second is to note that, while IKEv2 normally acts this way, it doesn't always.
-EdDSA has a similar constraint on not working cleanly with the standard 'hash and then sign' paradigm, and so the existing RFC 8420 provides an alternative method, which ML-DSA would cleanly fit into
-We could certainly adopt this same strategy; our concern would be that it might be more difficult for IKEv2 implementors which do not already have support for EdDSA
+EdDSA has a similar constraint on not working cleanly with the standard 'hash and then sign' paradigm, and so the existing RFC 8420 provides an alternative method, which ML-DSA would cleanly fit into.
+We could certainly adopt this same strategy; our concern would be that it might be more difficult for IKEv2 implementors which do not already have support for EdDSA.
 
 The third way (which this current draft adopts) is what we can refer to as 'fake prehashing'; IKEv2 would generate the hash as current, but instead of running ML-DSA in prehash mode, we have ML-DSA sign it as if it was the message.
 This is a violation of the spirit, if not the letter of FIPS 204.
