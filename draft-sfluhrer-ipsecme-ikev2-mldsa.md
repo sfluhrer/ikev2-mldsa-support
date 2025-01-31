@@ -125,6 +125,12 @@ TODO Security
 
 # Discussion
 
+We made several arbitrary design decisions while writing this draft.
+This section contains the reasoning.
+Of course, these decisions are open to changes - this is just a first cut.
+
+## ML-DSA and Prehashing
+
 The signature architecture within IKE was designed around RSA (and later extended to ECDSA).
 In this architecture, the actual message (the SignedOctets) are first hashed (using a hash that the verifier has indicated support for), and then passed for the remaining part of the signature generation processing.
 That is, it is designed for signature algorithms that first apply one of a number of hash functions to the message and then perform processing on that hash.
@@ -169,4 +175,4 @@ The additional OIDs that this uses have been defined by NIST and do not need to 
 # Acknowledgments
 {:numbered="false"}
 
-TODO acknowledge.
+No acknowledgements yet (no one has actually seen this draft until now)
