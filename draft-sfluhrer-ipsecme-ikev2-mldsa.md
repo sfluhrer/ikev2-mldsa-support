@@ -119,7 +119,7 @@ TODO: I've defined the method two different ways - if we keep both, we need to m
 If this implementation receives a certificate with an ML-DSA public key, it will process the AUTH payload as implied by RFC7427.
 That is, it will recover the hash function from the AlgorithmIdentifier ASN.1 object.
 Then, it will take the ResponderSignedOctets or InitiatorSignedOctets string (depending on the whether they are the initiator or the responder), and then hash the string.
-Then, it will before an ML-DSA verification, using the hash as the message, the public key from the certificate, and the signature value from the AUTH payload.
+Then, it will before an ML-DSA verification, using the hash as the message, the public key from the certificate, the string "IKEv2 AUTH" as the context string, and the signature value from the AUTH payload.
 If this signature verification fails, the implementation MUST reject the IKEv2 message.
 
 # Security Considerations
