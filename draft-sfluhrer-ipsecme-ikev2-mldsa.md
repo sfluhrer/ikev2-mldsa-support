@@ -51,7 +51,7 @@ Quantum Computer (CRQC) is IKEv2 authentication based on traditional
 asymmetric cryptograph algorithms: e.g RSA, ECDSA; which are widely
 deployed authentication options of IKEv2.
 NIST has recently standardized ML-DSA, which is a signature algorithm believed to be secure against Quantum Computers.
-This document describes how to use ML-DSA with IKEv2 as an auhentication scheme.
+This document describes how to use ML-DSA with IKEv2 as an authentication scheme.
 
 --- middle
 
