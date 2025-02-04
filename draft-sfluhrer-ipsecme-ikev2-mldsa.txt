@@ -4,8 +4,8 @@
 
 IPsecME                                                       S. Fluhrer
 Internet-Draft                                             Cisco Systems
-Intended status: Informational                           31 January 2025
-Expires: 4 August 2025
+Intended status: Informational                           4 February 2025
+Expires: 8 August 2025
 
 
                         IKEv2 Support of ML-DSA
@@ -19,7 +19,7 @@ Abstract
    deployed authentication options of IKEv2.  NIST has recently
    standardized ML-DSA, which is a signature algorithm believed to be
    secure against Quantum Computers.  This document describes how to use
-   ML-DSA with IKEv2 as an auhentication scheme.
+   ML-DSA with IKEv2 as an authentication scheme.
 
 About This Document
 
@@ -55,7 +55,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 4 August 2025.
+   This Internet-Draft will expire on 8 August 2025.
 
 Copyright Notice
 
