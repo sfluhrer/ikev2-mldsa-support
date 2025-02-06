@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2025-02-04T01:27:09.756127+00:00",
+  "timestamp": "2025-02-06T01:36:14.345832+00:00",
   "repo": "sfluhrer/ikev2-mldsa-support",
   "labels": [
     {
@@ -50,5 +50,56 @@
     }
   ],
   "issues": [],
-  "pulls": []
+  "pulls": [
+    {
+      "number": 1,
+      "id": "PR_kwDONxnUF86J90-_",
+      "title": "typo fix",
+      "url": "https://github.com/sfluhrer/ikev2-mldsa-support/pull/1",
+      "state": "MERGED",
+      "author": "loganaden",
+      "authorAssociation": "CONTRIBUTOR",
+      "assignees": [],
+      "labels": [],
+      "body": "",
+      "createdAt": "2025-02-04T10:08:55Z",
+      "updatedAt": "2025-02-04T12:17:53Z",
+      "baseRepository": "sfluhrer/ikev2-mldsa-support",
+      "baseRefName": "main",
+      "baseRefOid": "b6d71f7b4fe0b167cd8f74da8aa141e2d79907b0",
+      "headRepository": "loganaden/ikev2-mldsa-support",
+      "headRefName": "patch-1",
+      "headRefOid": "9b3b0e5654e0f78864dc3081c1647e79c4facc1d",
+      "closedAt": "2025-02-04T12:17:39Z",
+      "mergedAt": "2025-02-04T12:17:39Z",
+      "mergedBy": "sfluhrer",
+      "mergeCommit": {
+        "oid": "33bb8114941f1798a6142e61fec92c3ad7a00594"
+      },
+      "comments": [
+        {
+          "author": "sfluhrer",
+          "authorAssociation": "OWNER",
+          "body": "Thanks",
+          "createdAt": "2025-02-04T12:17:51Z",
+          "updatedAt": "2025-02-04T12:17:51Z"
+        }
+      ],
+      "reviews": [
+        {
+          "id": "PRR_kwDONxnUF86aiM4s",
+          "commit": {
+            "abbreviatedOid": "9b3b0e5"
+          },
+          "author": "sfluhrer",
+          "authorAssociation": "OWNER",
+          "state": "APPROVED",
+          "body": "",
+          "createdAt": "2025-02-04T12:17:30Z",
+          "updatedAt": "2025-02-04T12:17:30Z",
+          "comments": []
+        }
+      ]
+    }
+  ]
 }
