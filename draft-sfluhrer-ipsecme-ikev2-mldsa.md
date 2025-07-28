@@ -60,7 +60,7 @@ This document describes how to use ML-DSA with IKEv2 as an authentication scheme
    A Cryptographically Relevant Quantum Computer (CRQC) could break
    traditional asymmetric cryptograph algorithms: e.g RSA, ECDSA; which
    are widely deployed authentication options of IKEv2.
-   NIST has recently published the postquantum digitial signature algorithm ML-DSA [FIPS204].
+   NIST has recently published the postquantum digital signature algorithm ML-DSA [FIPS204].
 
    This document describes how to use this algorithm for authentication within IKEv2 [RFC7296], as a replacement for the traditional signature algorithms (RSA, ECDSA).
 
@@ -90,7 +90,7 @@ This document describes how to use ML-DSA with IKEv2 as an authentication scheme
 ## Initial Negotiation
 
 Both sides will need to inform the other that they implement ML-DSA signatures.
-To do so, they will use the [RFC9593] mechanism to specify support for ML-DSA signatures, using the Multi-octet Announcement, with the following Algorithm Idenfifiers:
+To do so, they will use the [RFC9593] mechanism to specify support for ML-DSA signatures, using the Multi-octet Announcement, with the following Algorithm Idenfifiers (in hex):
 
 * ML-DSA-44 -> `30 0b 06 09 60 86 48 01 65 03 04 03 11`
 * ML-DSA-65 -> `30 0b 06 09 60 86 48 01 65 03 04 03 12`
@@ -179,4 +179,4 @@ The additional OIDs that this uses have been defined by NIST and do not need to 
 # Acknowledgments
 {:numbered="false"}
 
-No acknowledgements yet (no one has actually seen this draft until now)
+No acknowledgements yet
