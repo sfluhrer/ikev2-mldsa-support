@@ -1273,19 +1273,18 @@ appear in all capitals, as shown here.<a href="#section-2-1" class="pilcrow">¶<
 To do so, they will use the <span>[<a href="#RFC9593" class="cite xref">RFC9593</a>]</span> mechanism to specify support for ML-DSA signatures, using the Multi-octet Announcement, with the following Algorithm Idenfifiers (in hex):<a href="#section-3.1-1" class="pilcrow">¶</a></p>
 <ul class="normal">
 <li class="normal" id="section-3.1-2.1">
-            <p id="section-3.1-2.1.1">ML-DSA-44 -&gt; <code>30 0b 06 09 60 86 48 01 65 03 04 03 11</code><a href="#section-3.1-2.1.1" class="pilcrow">¶</a></p>
+            <p id="section-3.1-2.1.1">ML-DSA-44 -&gt; <code>06 09 60 86 48 01 65 03 04 03 11</code><a href="#section-3.1-2.1.1" class="pilcrow">¶</a></p>
 </li>
           <li class="normal" id="section-3.1-2.2">
-            <p id="section-3.1-2.2.1">ML-DSA-65 -&gt; <code>30 0b 06 09 60 86 48 01 65 03 04 03 12</code><a href="#section-3.1-2.2.1" class="pilcrow">¶</a></p>
+            <p id="section-3.1-2.2.1">ML-DSA-65 -&gt; <code>06 09 60 86 48 01 65 03 04 03 12</code><a href="#section-3.1-2.2.1" class="pilcrow">¶</a></p>
 </li>
           <li class="normal" id="section-3.1-2.3">
-            <p id="section-3.1-2.3.1">ML-DSA-87 -&gt; <code>30 0b 06 09 60 86 48 01 65 03 04 03 13</code><a href="#section-3.1-2.3.1" class="pilcrow">¶</a></p>
+            <p id="section-3.1-2.3.1">ML-DSA-87 -&gt; <code>06 09 60 86 48 01 65 03 04 03 13</code><a href="#section-3.1-2.3.1" class="pilcrow">¶</a></p>
 </li>
         </ul>
-<p id="section-3.1-3">TODO: Verify that these are the DER OID values that NIST has specified<a href="#section-3.1-3" class="pilcrow">¶</a></p>
-<p id="section-3.1-4">If an implementation supports multiple ML-DSA parameter sets, it will list every parameter set it does support.<a href="#section-3.1-4" class="pilcrow">¶</a></p>
-<p id="section-3.1-5">If the peer has not specified support for a parameter set in a SUPPORTED_AUTH_METHODS notify, that ML-DSA parameter set <span class="bcp14">MUST NOT</span> be used.<a href="#section-3.1-5" class="pilcrow">¶</a></p>
-<p id="section-3.1-6">In addition, the SIGNATURE_HASH_ALGORITHMS Notify payload must also be sent (see <span>[<a href="#RFC7427" class="cite xref">RFC7427</a>]</span>), listing the supported hash functions.<a href="#section-3.1-6" class="pilcrow">¶</a></p>
+<p id="section-3.1-3">If an implementation supports multiple ML-DSA parameter sets, it will list every parameter set it does support.<a href="#section-3.1-3" class="pilcrow">¶</a></p>
+<p id="section-3.1-4">If the peer has not specified support for a parameter set in a SUPPORTED_AUTH_METHODS notify, that ML-DSA parameter set <span class="bcp14">MUST NOT</span> be used.<a href="#section-3.1-4" class="pilcrow">¶</a></p>
+<p id="section-3.1-5">In addition, the SIGNATURE_HASH_ALGORITHMS Notify payload must also be sent (see <span>[<a href="#RFC7427" class="cite xref">RFC7427</a>]</span>), listing the supported hash functions.<a href="#section-3.1-5" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="auth-payload-generation">
