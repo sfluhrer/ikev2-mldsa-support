@@ -4,8 +4,8 @@
 
 IPsecME                                                       S. Fluhrer
 Internet-Draft                                             Cisco Systems
-Intended status: Informational                           4 February 2025
-Expires: 8 August 2025
+Intended status: Informational                              28 July 2025
+Expires: 29 January 2026
 
 
                         IKEv2 Support of ML-DSA
@@ -55,7 +55,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 8 August 2025.
+   This Internet-Draft will expire on 29 January 2026.
 
 Copyright Notice
 
@@ -96,8 +96,8 @@ Table of Contents
    A Cryptographically Relevant Quantum Computer (CRQC) could break
    traditional asymmetric cryptograph algorithms: e.g RSA, ECDSA; which
    are widely deployed authentication options of IKEv2.  NIST has
-   recently published the postquantum digitial signature algorithm ML-
-   DSA [FIPS204].
+   recently published the postquantum digital signature algorithm ML-DSA
+   [FIPS204].
 
    This document describes how to use this algorithm for authentication
    within IKEv2 [RFC7296], as a replacement for the traditional
@@ -145,7 +145,7 @@ Table of Contents
    Both sides will need to inform the other that they implement ML-DSA
    signatures.  To do so, they will use the [RFC9593] mechanism to
    specify support for ML-DSA signatures, using the Multi-octet
-   Announcement, with the following Algorithm Idenfifiers:
+   Announcement, with the following Algorithm Idenfifiers (in hex):
 
    *  ML-DSA-44 -> 30 0b 06 09 60 86 48 01 65 03 04 03 11
 
@@ -331,8 +331,7 @@ Table of Contents
 
 Acknowledgments
 
-   No acknowledgements yet (no one has actually seen this draft until
-   now)
+   No acknowledgements yet
 
 Author's Address
 
